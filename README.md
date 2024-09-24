@@ -1,8 +1,9 @@
 # EXPERIMENT--01-ALP-FOR-8086
+```
 Name : SUDHIR KUMAR
 Roll no : 212223230221
 Date of experiment : 13-08-2024
-
+```
 ## Aim: To Write and execute ALP on fundamental arithmetic and logical operations
 ## Components required: 8086  emulator 
 ## Theory 
