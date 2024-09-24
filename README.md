@@ -73,53 +73,168 @@ Running The Emulator (emu8086) Intro 8086 Microprocessor Emulator, also known as
 
 
 ## Programs for arithmetic  operations
-
-## Addition  of 8 bit ALP 
+### Addition of 8 bit ALP 
 ```
-MOV AX,78H;
-MOV BX,69H;
-ADD AX,BX
-HLT
-```
+org 100h  
 
-## Output  
-![Screenshot 2024-08-21 091642](https://github.com/user-attachments/assets/16b755ed-e5c3-4292-9d6c-1391e3e8face)
+mov al, 25h    
+mov bl, 13h    
+add al, bl     
+mov [02375h], al
 
-## Subtraction   of 8 bit numbers  ALP 
-```
-MOV AL,68H;
-MOV BL,33H;
-SUB AL,BL
-HLT
+ret
 ```
 
-## Output  
-![Screenshot 2024-08-21 092032](https://github.com/user-attachments/assets/07ca1116-55ca-4034-820b-aee4e1f4be4c)
-
-## Multiplication alp 
+### Output  
+![362518433-0e5a104a-d447-4aa8-b451-cd06f6043031](https://github.com/user-attachments/assets/798124b1-a535-44f7-9deb-d20d0711559b)
+ 
+### Subtraction of 8 bit numbers  ALP 
 ```
-MOV AL,75H;
-MOV BL,12H;
-MUL BL
-HLT
-```
-## Output  
+org 100h  
 
-![Screenshot 2024-08-21 092207](https://github.com/user-attachments/assets/5f59ea0f-fa72-4618-83b7-30d7fdb7cd1d)
+mov al, 25h    
+mov bl, 13h    
+sub al, bl     
+mov [2375h], al
 
-## Division alp 
-```
-MOV AL,65H;
-MOV BL,15H;
-DIV BL
-HLT
-```
-## Output  
+ret            
 
-![Screenshot 2024-08-21 092329](https://github.com/user-attachments/assets/9db5341b-dcd8-4ea3-9f0c-f09c0515968a)
+```
+### Output  
+
+![362527352-eae4339b-24a4-4fd3-8593-0fe32dd8502c](https://github.com/user-attachments/assets/86edac06-3ee9-40bf-99af-481598eff5f9)
+
+### Multiplication ALP
+```
+org 100h
+
+mov ax, 4101h  
+mov [6000h], ax
+mov bx, 2218h  
+mov ax, [6000h]
+mul bx         
+
+mov [5008h], ax
+
+ret
+```
+### Output  
+
+![362527713-abc0a116-5a86-4645-b86a-5713488848db](https://github.com/user-attachments/assets/3432ea23-1272-447b-8818-d62cbe622351)
+
+### Division ALP
+```
+org 100h            
+
+mov ax, 0b161h      
+mov dx, 0           
+
+mov [2000h], 0a415h 
+mov bx, [2000h]     
+div bx              
+
+mov [1121h], ax     
+
+ret                 
+```
+### Output  
+
+![362528014-0f88b600-6fb8-4414-b601-288381ec42d7](https://github.com/user-attachments/assets/0f8e81b3-458c-49c7-beab-7e353c94b26b)
+
+## Logical Operations :
+### OR ALP :
+```
+org 100h
+
+mov ax, 0A23h
+mov si, 0b13h
+or ax, si
+
+ret
+```
+### Output 
+
+![362530622-7a252420-c435-4de8-bd94-032128a4b573](https://github.com/user-attachments/assets/f36e3a39-e8cb-41d1-8fb5-57bd7a20172d)
+
+### AND ALP :
+```
+org 100h
+
+mov di, 0532h 
+mov cx, 0A23h
+mov dx, 0b13h
+and cx, dx   
+mov [0007h], cx
+
+ret
+```
+### Output 
+
+![362530808-18173478-49de-483c-84a2-3fdff781932c](https://github.com/user-attachments/assets/972c7b42-f7f0-4a17-aa36-4fd7fe6007f3)
+
+### NOT ALP :
+```
+org 100h
+
+mov ax, 0A32h  
+not ax         
+               
+mov [0008h], ax
+
+ret
+```
+### Output
+
+![362530955-7a453c92-cc40-4017-94cb-7bdedff3cbc1](https://github.com/user-attachments/assets/cb3226bc-32df-49bc-a46e-6f373a59c90d)
+
+### NAND ALP :
+```
+org 100h 
+
+mov ax, 0A32h  
+mov bx, 0B13h  
+and ax, bx     
+not ax         
+mov [0008h], ax
+
+ret
+```
+### Output
+
+![362532760-9dde0de5-7fcf-4a1d-93ea-7ea467925a8c](https://github.com/user-attachments/assets/88737397-2e5e-43c0-891c-715f9c88c4ac)
+
+### NOR ALP :
+```
+org 100h
+
+mov ax, 0A45h  
+mov bx, 0C30h  
+or ax, bx      
+not ax         
+mov [0020h], ax
+
+ret
+```
+### Output
+
+![362533927-f34814dd-1578-4239-aa6c-39422be6c6f0](https://github.com/user-attachments/assets/f22678be-ccb7-4bb6-8557-8c6f2d963a9a)
+
+### XOR ALP :
+```
+org 100h
+mov ax, 0A32h  
+mov bx, 0B13h  
+xor ax, bx     
+               
+mov [0028h], ax
+
+ret
+```
+### Output
+
+![362534166-2facb33a-a5ad-431c-bfa8-8182d3ae9c69](https://github.com/user-attachments/assets/0121f1ec-69f9-48a5-9edc-0fb244b942be)
 
 ## Result :
-
 Thus, Assembly Language Program for fundamental arithmetic and logical operations are exected succesfully.
 
 
